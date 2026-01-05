@@ -10,19 +10,14 @@ import { usePlaylist } from "../context/PlaylistContext";
 
 const fetchSongs = async (query) => {
   const controller = new AbortController();
-  const timeoutId = setTimeout(() => controller.abort(), 7000);
-
-  try {
-    const res = await fetch(
-      `https://itunes.apple.com/search?term=${encodeURIComponent(query)}&media=music&limit=10`,
-      { signal: controller.signal }
-    );
-
-    if (!res.ok) throw new Error("Failed to fetch songs");
-    return res.json();
-  } finally {
-    clearTimeout(timeoutId);
-  }
+  const res = await fetch(
+    `https://itunes.apple.com/search?term=${encodeURIComponent(
+      query
+    )}&media=music&limit=10`,
+    {signal: controller.signal}
+  );
+  if (!res.ok) throw new Error("Failed to fetch songs");
+  return res.json();
 };
 
 const SearchResults = () => {
