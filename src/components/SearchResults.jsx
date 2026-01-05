@@ -7,6 +7,7 @@ import { usePlayer } from "../context/PlayerContext";
 import { useLibrary } from "../context/LibraryContext";
 import { usePlaylist } from "../context/PlaylistContext";
 
+
 const fetchSongs = async (query) => {
   const res = await fetch(
     `https://itunes.apple.com/search?term=${encodeURIComponent(
@@ -59,6 +60,10 @@ const SearchResults = () => {
                 <img
                   src={song.artworkUrl100}
                   alt={song.trackName}
+                  loading="lazy"
+                  onError={(e)=>{
+                    e.currentTarget.src ='../../public/ChatGPT Image Jan 2, 2026, 11_22_49 PM.png'
+                  }}
                   className="rounded-md w-full aspect-square object-cover"
                 />
 

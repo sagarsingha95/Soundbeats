@@ -5,9 +5,9 @@ import { AiFillLike } from "react-icons/ai";
 import { MdOutlinePlaylistPlay } from "react-icons/md";
 
 const menuItems = [
-  { name: "Home", icon: <FaHome />, path: "/" ,id:1},
-  { name: "Liked Songs", icon: <AiFillLike />, path: "/likedsongs",id:2 },
-  { name: "Playlist", icon: <MdOutlinePlaylistPlay />, path: "/playlist",id:3 },
+  { name: "Home", icon: <FaHome size={30}/>, path: "/" ,id:1},
+  { name: "Liked Songs", icon: <AiFillLike size={30}/>, path: "/likedsongs",id:2 },
+  { name: "Playlist", icon: <MdOutlinePlaylistPlay size={30}/>, path: "/playlist",id:3 },
 ];
 
 const SideBar = () => {
@@ -50,7 +50,7 @@ const SideBar = () => {
       </div>
 
       {/* Mobile Top Nav */}
-      <div className="md:hidden fixed top-0 left-0 w-full bg-[#121212] text-white flex justify-around p-2 z-50 border-b border-white/10">
+      <div className="md:hidden fixed bottom-0 left-0 w-full bg-[#121212] text-white flex justify-around p-2 z-50 border-b border-white/10">
         {menuItems.map((item) => {
           const isActive = location.pathname === item.path;
           return (
